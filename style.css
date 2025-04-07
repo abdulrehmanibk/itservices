@@ -1,9 +1,13 @@
 @font-face {
-    font-family: 'mokoto-enyfs';
+    font-family: 'roboto';
+    src: url('/fonts/Roboto-VariableFont_wdth\,wght.ttf');
+}
+@font-face {
+    font-family: 'mokoto';
     src: url('/fonts/mokoto.regular.ttf');
 }
 body , *{
-    font-family: 'mokoto-enyfs';
+    font-family: 'roboto';
     margin: 0;
     padding: 0;
     /* background-color: #ffffff;
@@ -104,6 +108,7 @@ html {
 .nav li:first-child a{
     font-size: 1.8rem;
     font-weight: 600;
+    font-family: 'mokoto';
 }
 .nav li:nth-child(5){
     display: none;
