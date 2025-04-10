@@ -72,6 +72,8 @@ html {
     cursor: pointer;
     transition: 0.3s;
     border: 0.15rem solid #FF7F32;
+    animation: slideUp 1.5s ease-in-out forwards;
+
 }
 .btn:hover{
     background-color: #fff;
@@ -96,7 +98,7 @@ html {
     margin-top: 1rem;
     transform: translateY(-20%);
     position: absolute;
-
+    animation: slideUp 1.5s ease-in-out forwards;
 }
 
 .navMobile li:first-child{
@@ -120,6 +122,8 @@ html {
     font-size: clamp(2rem, 6rem, 5vw);
     letter-spacing: 1px;
     transition: 0.3s;
+    animation: slideIn 1.5s ease-in-out forwards;
+
 }
 .hero p{
     font-size: clamp(1rem, 1.2rem, 2vw);
@@ -127,6 +131,8 @@ html {
     letter-spacing: 1.9px;
     margin-bottom: 2rem;
     /* line-height: 25px; */
+    animation: slideUp 1.5s ease-in-out forwards;
+
 
 }
 
@@ -148,7 +154,7 @@ html {
     /* color: #000048; */
     color: #000031;
     font-size: clamp(2.2rem, 3rem, 5vw);
-
+    animation: slideUp 1.5s ease-in forwards;
 }
 .solutions-cardContainer{
     width: 100%;
@@ -178,6 +184,22 @@ html {
     flex: 1 1 25%;
     /* min-height: 6rem; */
     
+}
+.solution-card:nth-child(1){
+    animation: slideIn 1.5s ease-in-out forwards;
+
+}
+.solution-card:nth-child(2){
+    animation: slideIn 2s ease-in-out forwards;
+
+}
+.solution-card:nth-child(3){
+    animation: slideIn 2.5s ease-in-out forwards;
+
+}
+.solution-card:nth-child(4){
+    animation: slideIn 3s ease-in-out forwards;
+
 }
 .solution-card i {
     color: #1E90FF;
@@ -233,6 +255,7 @@ footer {
     /* transform: scale(50vw); */
     /* transform: scale(1); 1440 is your base design width */
     /* transform-origin: top left; */
+    animation: slideUp 1.5s ease-in-out forwards;
 
 }
 .innerBox h2{
@@ -297,6 +320,7 @@ footer {
     display: flex;
     display: none;
     z-index: 11111;
+
 }
 .basInnerBox{
     width: 25rem;
@@ -308,6 +332,8 @@ footer {
     gap: 1rem;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: .5rem;
+    animation: slideIn 1.5s ease-in-out forwards;
+
 }
 .basInnerBox h2{
     color: #FF7F32;
@@ -382,3 +408,36 @@ footer {
     }
 
 }
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%); /* Start off-screen to the left */
+      }
+      50% {
+        transform: translateY(10px); /* Move slightly to the right */
+      }
+      70% {
+        transform: translateY(-5px); /* Move slightly to the left */
+      }
+      100% {
+        transform: translateY(0); /* End at the original position */
+      }
+  }
+  @keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%); /* Start off-screen to the left */
+      }
+      50% {
+        opacity: 0.4;
+        transform: translateY(-10px); /* Move slightly to the right */
+      }
+      70% {
+        opacity: 0.8;
+        transform: translateY(5px); /* Move slightly to the left */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* End at the original position */
+      }
+  }

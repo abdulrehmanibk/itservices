@@ -11,13 +11,12 @@ toggleBtn.addEventListener("click", function (e) {
     e.preventDefault();
     navMobile.classList.toggle("active");
 
-    // toggleBtn.textContent = navMobile.classList.contains("active") ? 'X' : 'O';
-    if (toggleBtn.classList.contains("fa-bars")) {
+    if (navMobile.classList.contains("active")) {
       toggleBtn.classList.remove("fa-bars");
-      toggleBtn.classList.add("fa-xmark"); // Close icon
+      toggleBtn.classList.add("fa-xmark"); 
     } else {
       toggleBtn.classList.remove("fa-xmark");
-      toggleBtn.classList.add("fa-bars"); // Menu icon
+      toggleBtn.classList.add("fa-bars"); 
     }
 
 });
@@ -29,7 +28,9 @@ document.addEventListener("click", function (e) {
 
     if (!isClickInsideMenu && !isClickOnButton && navMobile.classList.contains("active")) {
         navMobile.classList.remove("active");
-        toggleBtn.textContent = 'O';
+        // toggleBtn.textContent = 'O';
+        toggleBtn.classList.remove("fa-xmark");
+        toggleBtn.classList.add("fa-bars");   
     }
 });
 
@@ -63,7 +64,6 @@ basModalClose.addEventListener("click", function (e) {
 
 document.querySelector('#sendMessage').addEventListener('click', async (e) => {
     e.preventDefault();
-    console.log("_____________________________-----");
     
     // Get selected services
     const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked'))
@@ -98,6 +98,7 @@ document.querySelector('#sendMessage').addEventListener('click', async (e) => {
         console.log('Failed to send message0.', response);
         basModal.classList.remove("basModalActive");
       }
+      
     } catch (error) {
       console.error('Error sending message0:', error);
       alert('Something went wrong.');
