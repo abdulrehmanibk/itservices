@@ -50,3 +50,49 @@ basModalClose.addEventListener("click", function (e) {
     e.preventDefault();
     basModal.classList.remove("basModalActive");
 });
+
+
+
+document.querySelector('#sendMessage').addEventListener('click', async (e) => {
+    e.preventDefault();
+    console.log("_____________________________-----");
+    
+    // Get selected services
+    const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+      .map(input => input.value);
+  
+    // Get email and description values
+    const email = document.querySelector('.emailInput').value.trim();
+    const description = document.querySelector('.descInput').value.trim();
+  
+    const userData = {
+      services: selectedServices,
+      email,
+      description
+    };
+    
+    const url = 'https://enyfs-anti-client.vercel.app/send-proposal'; // Replace with your actual API
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+  
+      if (response.ok) {
+        console.log('Message sent successfully!');
+        basModal.classList.remove("basModalActive");
+      } else {
+        
+        console.log('Failed to send message0.', response);
+        basModal.classList.remove("basModalActive");
+      }
+    } catch (error) {
+      console.error('Error sending message0:', error);
+      alert('Something went wrong.');
+    }
+    basModal.classList.remove("basModalActive");
+  });
