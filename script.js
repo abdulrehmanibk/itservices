@@ -11,7 +11,15 @@ toggleBtn.addEventListener("click", function (e) {
     e.preventDefault();
     navMobile.classList.toggle("active");
 
-    toggleBtn.textContent = navMobile.classList.contains("active") ? 'X' : 'O';
+    // toggleBtn.textContent = navMobile.classList.contains("active") ? 'X' : 'O';
+    if (toggleBtn.classList.contains("fa-bars")) {
+      toggleBtn.classList.remove("fa-bars");
+      toggleBtn.classList.add("fa-xmark"); // Close icon
+    } else {
+      toggleBtn.classList.remove("fa-xmark");
+      toggleBtn.classList.add("fa-bars"); // Menu icon
+    }
+
 });
 
 // Close when clicking outside
